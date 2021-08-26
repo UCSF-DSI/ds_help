@@ -15,7 +15,7 @@ In this workshop, participants will learn to navigate online data science resour
 | Posting Questions in Online Forums |	10 |	Lecture |
 | Solving a Data Science Challenge |	30 |	Activity |
 | Recap and Debrief |	5 |	Lecture |
-| Open Q and A |	30 |	Q and A |
+| Open Q&A |	30 |	Discussion |
 
 ### Facilitator Roles
 | Role | Description |
