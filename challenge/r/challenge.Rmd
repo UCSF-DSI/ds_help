@@ -1,0 +1,49 @@
+---
+title: "Hacky Hour Challenge (Finding Data Science Help Online)"
+output: html_notebook
+---
+
+# Load Required Packages
+
+```{r}
+# install.packages("tidyverse")
+library(tidyverse)
+```
+
+# Load Data
+
+```{r}
+testing_results <- read_csv("detroit_water_testing_results.csv")
+testing_results
+```
+
+# Summarize Data by Type and Result
+
+```{r}
+testing_summary <- testing_results %>%
+  group_by(Type, Status) %>%
+  count() %>%
+  mutate(
+    prop = n / sum(testing_results$Type == Type)
+  )
+
+testing_summary
+```
+
+# Visualize
+
+```{r}
+public_bar <- ggplot(filter(testing_summary, Type == "Public")) +
+  aes(x = prop, y = Status) +
+  geom_bar(stat="identity")
+
+public_bar
+```
+
+```{r}
+charter_bar <- ggplot(filter(testing_summary, Type == "Charter and EEA")) +
+  aes(x = prop, y = Status) +
+  geom_bar(stat="identity")
+  
+charter_bar
+```
